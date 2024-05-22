@@ -49,7 +49,7 @@ const Sidebar = () => {
         <div className='w-full flex flex-col justify-center items-center'>
           <div className="flex flex-col items-center justify-center mt-4">
             <Link href={Routes.HOME}>
-              <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Saver</h1>
+              <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Lister</h1>
             </Link>
           </div>
           <div className='flex flex-col w-[80%] mt-6'>
