@@ -24,7 +24,7 @@ const Library = async () => {
   }
 
   return (
-    <div className="flex flex-col justify-center gap-6 p-6 overflow-y-hidden overflow-x-hidden w-full h-full">
+    <div className="flex flex-col items-center justify-center gap-6 p-6 overflow-y-hidden overflow-x-hidden w-full h-full">
       <LibraryClient userName={data.user.user_metadata.first_name} />
     </div>
   );

@@ -43,7 +43,7 @@ const Sidebar = () => {
   return (
     <>
       <button className="p-4 text-xl fixed top-0 left-0 z-40 lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-        <RiMenu2Fill className='text-white w-6 h-6'/>
+        <RiMenu2Fill className={`${isOpen ? 'text-white' : 'text-primarypink'} w-6 h-6`}/>
       </button>
       <div className={`${isMobile ? `${isOpen ? 'translate-x-0' : '-translate-x-full'}` : ''} fixed z-30 w-full h-screen flex flex-col items-center pb-10 justify-between bg-sidebar md:rounded-r-[20px] md:w-[220px] transition-transform duration-300`}>
         <div className='w-full flex flex-col justify-center items-center'>
