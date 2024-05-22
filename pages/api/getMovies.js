@@ -1,6 +1,5 @@
 import fs from 'fs';
 import csvParser from 'csv-parser';
-import { NextResponse } from 'next/server';
 
 const csvName = "data/movie_details.csv";
 
