@@ -17,8 +17,8 @@ interface ListProps {
 
 const List = ({ cards, onCardClick, selectedCard }: ListProps) => {
   return (
-    <div className="flex py-2 flex-col w-full">
-      <div className="flex flex-wrap overflow-y-scroll overflow-x-hidden p-2 gap-4 hide-scrollbar">
+    <div className="absolute left-0 md:relative w-full flex py-2 flex-col items-center">
+      <div className="flex flex-wrap overflow-y-scroll overflow-x-hidden p-2 gap-4 hide-scrollbar justify-center transition-transform duration-1000">
         {cards.map((card, index) => (
           <div
             key={index}
