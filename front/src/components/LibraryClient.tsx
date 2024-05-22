@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
-import Carroussel from "./List";
+import List from "./List";
 import ReviewPanel from "../components/ReviewPanel";
 
 interface Card {
@@ -29,8 +29,8 @@ const LibraryClient: React.FC<LibraryClientProps> = ({ userName }) => {
       });
 
       const { data } = await res.json();
-      console.log('data', data);
       setLibraryData(data);
+      // setSelectedCard(null);
     };
     fetchData();
   }, [searchQuery]);
@@ -40,11 +40,11 @@ const LibraryClient: React.FC<LibraryClientProps> = ({ userName }) => {
   };
 
   return (
-    <div className='flex flex-col overflow-x-hidden overflow-y-hidden p-4 hide-scrollbar w-full h-full'>
+    <div className='flex flex-col overflow-x-hidden overflow-y-hidden p-2 hide-scrollbar w-full h-full'>
       <Header userName={userName} page='library' setSearchQuery={setSearchQuery} />
       <div className="flex h-full overflow-y-hidden overflow-x-hidden hide-scrollbar transition-all duration-500">
-        <div className={`flex flex-col h-full overflow-y-scroll hide-scrollbar transition-all duration-500 ${selectedCard ? 'w-2/3' : 'w-full'}`}>
-            <Carroussel 
+        <div className={`flex flex-col h-full overflow-y-scroll hide-scrollbar transition-all duration-500 ${selectedCard ? 'w-full hidden md:flex md:w-2/3' : 'w-full'}`}>
+            <List 
               cards={libraryData}
               onCardClick={handleCardClick}
               selectedCard={selectedCard} 
