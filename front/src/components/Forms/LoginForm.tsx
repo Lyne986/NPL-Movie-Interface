@@ -42,16 +42,16 @@ const LoginForm: React.FC = () => {
             id="email"
             name="email"
             onChange={handleChange}
-            placeholder="Ton adresse email"
+            placeholder="Email"
             type="email"
             required
           />
           <Input
-            label="Mot de passe"
+            label="Password"
             id="password"
             name="password"
             onChange={handleChange}
-            placeholder="Ton mot de passe"
+            placeholder="Password"
             type="password"
             required
           />
@@ -61,7 +61,7 @@ const LoginForm: React.FC = () => {
             loading={loading}
             type="submit"
           >
-            Se connecter
+            Login
           </Button>
         </Form>
       )}

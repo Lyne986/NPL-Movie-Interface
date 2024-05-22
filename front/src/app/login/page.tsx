@@ -25,12 +25,12 @@ export default async function LoginPage() {
           <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Lister</h1>
         </div>
         <div className="h-full flex flex-col justify-center items-center lg:items-stretch gap-2 w-full md:w-[400px] md:pl-24">
-          <span className="text-white text-center lg:text-start text-2xl font-semibold">Heureux de te revoir !</span>
-          <span className="text-white text-center lg:text-start text-sm font-medium pb-6">Entre ton email et ton mot de passe pour te connecter</span>
+          <span className="text-white text-center lg:text-start text-2xl font-semibold">Welcome back!</span>
+          <span className="text-white text-center lg:text-start text-sm font-medium pb-6">Enter your login credentials</span>
           <LoginForm />
           <span className="flex gap-2 text-white text-xs text-center justify-center">
-            {`Tu n'as pas de compte ?`}
-            <Link className="font-semibold text-white underline hover:text-beige" href="/signup">Inscris-toi</Link>
+            {`Don't have an account ?`}
+            <Link className="font-semibold text-white underline hover:text-beige" href="/signup">Sign Up</Link>
           </span>
         </div>
       </div>

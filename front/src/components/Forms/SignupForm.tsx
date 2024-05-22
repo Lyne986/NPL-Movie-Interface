@@ -30,7 +30,7 @@ const SignupForm: React.FC = () => {
     const { password, confirmpassword } = values
 
     if (!password.length || !confirmpassword.length || password !== confirmpassword) {
-      return alert("Les mots de passe ne correspondent pas.")
+      return alert("Passwords don't match.")
     }
 
     setLoading(true)
@@ -48,11 +48,11 @@ const SignupForm: React.FC = () => {
       {({ handleChange, values }) => (
         <Form className="flex flex-col gap-4 w-full">
           <Input
-            label="Nom"
+            label="Name"
             id="name"
             name="name"
             onChange={handleChange}
-            placeholder="Ton nom"
+            placeholder="Your name"
             required
           />
           <Input
@@ -60,25 +60,25 @@ const SignupForm: React.FC = () => {
             id="email"
             name="email"
             onChange={handleChange}
-            placeholder="Ton adresse email"
+            placeholder="Your email"
             type="email"
             required
           />
           <Input
-            label="Mot de passe"
+            label="Password"
             id="password"
             name="password"
             onChange={handleChange}
-            placeholder="Ton mot de passe"
+            placeholder="Your password"
             type="password"
             required
           />
           <Input
-            label="Confirmation du mot de passe"
+            label="Confirm password"
             id="confirmpassword"
             name="confirmpassword"
             onChange={handleChange}
-            placeholder="Confirme ton mot de passe"
+            placeholder="Confirm password"
             type="password"
             required
           />

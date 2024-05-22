@@ -25,12 +25,12 @@ export default async function SignupPage() {
           <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Lister</h1>
         </div>
         <div className="h-full flex flex-col justify-center items-center lg:items-stretch gap-2 w-full md:w-[400px] md:pl-24">
-          <span className="text-white text-center lg:text-start text-2xl font-semibold">Bienvenue !</span>
-          <span className="text-white text-center lg:text-start text-sm font-medium pb-6">Crée ton compte dès maintenant !</span>
+          <span className="text-white text-center lg:text-start text-2xl font-semibold">Welcome !</span>
+          <span className="text-white text-center lg:text-start text-sm font-medium pb-6">Create you account now !</span>
           <SignupForm />
           <span className="flex gap-2 text-white text-xs text-center justify-center">
-            {`Tu as déjà un compte ?`}
-            <Link className="font-semibold text-white underline hover:text-beige" href="/login">Connecte-toi</Link>
+            {`You already have an account ?`}
+            <Link className="font-semibold text-white underline hover:text-beige" href="/login">Login</Link>
           </span>
         </div>
       </div>
