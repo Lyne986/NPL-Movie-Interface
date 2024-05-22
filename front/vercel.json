@@ -1,0 +1,12 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_CSV_PATH": "./src/data/movie_details.csv"
+    }
+  },
+  "functions": {
+    "api/*.ts": {
+      "includeFiles": "src/data/movie_details.csv"
+    }
+  }
+}
