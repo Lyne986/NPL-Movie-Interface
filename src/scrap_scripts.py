@@ -82,7 +82,7 @@ def get_movie_details(relative_link):
         genre_tags = details_table.find_all('a', href=lambda href: href and "/genre/" in href)
         genres = ', '.join([tag.get_text() for tag in genre_tags]) if genre_tags else 'N/A'
         
-        title, script = get_script(relative_link)
+        title_2, script = get_script(relative_link)
 
         return title, image_url, rating, release_date, genres, script
     except Exception as e:
