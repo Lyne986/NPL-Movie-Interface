@@ -24,7 +24,7 @@ const LibraryClient: React.FC<LibraryClientProps> = ({ userName }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_FRONT_HOST}/get-movies${searchQuery ? `?title=${searchQuery}` : ''}`, {
+      const res = await fetch(`/api/get-movies${searchQuery ? `?title=${searchQuery}` : ''}`, {
         method: 'GET',
       });
 
