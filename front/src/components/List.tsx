@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from './Rating';
 
 interface Card {
   title: string;
@@ -8,16 +9,16 @@ interface Card {
   genre?: string;
 }
 
-interface CarrousselProps {
+interface ListProps {
   cards: Card[];
   onCardClick: (card: Card) => void;
   selectedCard: Card | null;
 }
 
-const Carroussel = ({ cards, onCardClick, selectedCard }: CarrousselProps) => {
+const List = ({ cards, onCardClick, selectedCard }: ListProps) => {
   return (
-    <div className="flex py-2 flex-col w-full">
-      <div className="flex flex-wrap overflow-y-scroll overflow-x-hidden p-2 gap-4 hide-scrollbar">
+    <div className="absolute left-0 md:relative w-full flex py-2 flex-col items-center">
+      <div className="flex flex-wrap overflow-y-scroll overflow-x-hidden p-2 gap-4 hide-scrollbar justify-center transition-transform duration-1000">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -26,7 +27,8 @@ const Carroussel = ({ cards, onCardClick, selectedCard }: CarrousselProps) => {
           >
             <img src={card.imageUrl} alt={card.title} className="w-full h-2/3 object-cover object-top rounded-t-lg" />
             <div className="p-3 flex flex-col h-1/3 items-start justify-between overflow-auto">
-              <h2 className={`font-bold ${selectedCard && selectedCard.title === card.title ? 'text-textgray' : 'text-black'}`}>{card.title}</h2>
+              <h2 className={`font-semibold text-sm ${selectedCard && selectedCard.title === card.title ? 'text-textgray' : 'text-black'}`}>{card.title}</h2>
+              {card.genre && <p className={`text-xs ${selectedCard && selectedCard.title === card.title ? 'text-textgray' : 'text-black'}`}>{card.genre}</p>}
             </div>
           </div>
         ))}
@@ -35,6 +37,6 @@ const Carroussel = ({ cards, onCardClick, selectedCard }: CarrousselProps) => {
   );
 };
 
-Carroussel.displayName = 'Carroussel';
+List.displayName = 'List';
 
-export default Carroussel;
+export default List;

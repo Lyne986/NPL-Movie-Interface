@@ -19,7 +19,7 @@
   }
 
   .bg-sidebar {
-    background: #3DA35D
+    background: linear-gradient(to bottom right, #3DA35D, #00af61, #cbff49);
   }
 
   .diagonal-gradient-login {

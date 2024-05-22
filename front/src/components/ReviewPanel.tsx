@@ -1,7 +1,5 @@
 import React from 'react';
 import { FaArrowRightFromBracket } from "react-icons/fa6";
-
-import likeIcon from '../assets/likeIcon.svg';
 import Image from 'next/image';
 import Rating from './Rating';
 
@@ -20,8 +18,8 @@ interface ReviewPanelProps {
 
 const ReviewPanel: React.FC<ReviewPanelProps> = ({ card, setSelectedCard }) => {
   return (
-    <div className={`flex flex-col border-l border-gray-300 transition-transform duration-500 overflow-y-scroll pl-6 py-6 ${
-      card ? "translate-x-0 w-1/3" : "translate-x-full w-0"
+    <div className={`flex flex-col transition-transform duration-500 overflow-y-scroll md:pl-6 py-6 ${
+      card ? "translate-x-0 w-full md:w-1/3 md:translate-x-0" : "translate-x-full w-0 md:w-0 md:translate-x-0"
     }`}>
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-[24px]">Movie infos</h1>
