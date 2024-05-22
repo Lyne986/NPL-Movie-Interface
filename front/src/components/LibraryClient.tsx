@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
-import Carroussel from "../components/Carroussel";
+import Carroussel from "./List";
 import ReviewPanel from "../components/ReviewPanel";
 
 interface Card {
