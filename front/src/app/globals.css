@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+  .bg-login {
+    background-color: #3DA35D;
+    background-image: url("../assets/login-bg.png");
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .bg-signup {
+    background-color: #3DA35D;
+    background-image: url("../assets/signup-bg.png");
+    background-size: cover;
+    background-position: right
+  }
+
+  .bg-sidebar {
+    background: #3DA35D
+  }
+
+  .diagonal-gradient-login {
+    background: linear-gradient(to bottom right, #3DA35D, #4ca319, #72c840);
+  }
+
+  .button-gradient {
+    background: linear-gradient(to right, #5cb628, #3DA35D);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
