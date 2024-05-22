@@ -37,7 +37,7 @@ def get_script(relative_link):
         return None, None
 
     if script_link.endswith('.html'):
-        title = script_link.split('/')[-1].split(' Script')[0]
+        title = script_link.split('/')[-1].replace(' Script', '')
         script_url = BASE_URL + script_link
         script_soup = BeautifulSoup(requests.get(script_url).text, "html.parser")
         script_text = script_soup.find_all('td', {'class': "scrtext"})[0].get_text()
@@ -57,7 +57,7 @@ def get_movie_details(relative_link):
     try:
         details_table = soup.find('table', class_='script-details')
         
-        title = details_table.find('td', align='center').find('h1').get_text()
+        title = details_table.find('td', align='center').find('h1').get_text().replace(' Script', '')
 
         image_tags = details_table.find_all('img', class_='avimg')
         if len(image_tags) > 1:
@@ -82,27 +82,30 @@ def get_movie_details(relative_link):
         genre_tags = details_table.find_all('a', href=lambda href: href and "/genre/" in href)
         genres = ', '.join([tag.get_text() for tag in genre_tags]) if genre_tags else 'N/A'
         
-        script = get_script(relative_link)
+        title, script = get_script(relative_link)
 
         return title, image_url, rating, release_date, genres, script
     except Exception as e:
         print(f'Error parsing details for {tail}: {e}')
-        return None, None, None, None, None
+        return None, None, None, None, None, None
 
-def fetch_and_write_details(relative_link, writer):
+def fetch_and_write_details(relative_link, details_writer, script_writer):
     details = get_movie_details(relative_link)
     if details[0]:  # Check if title is not None
-        writer.writerow({
+        details_writer.writerow({
             'title': details[0],
             'imageUrl': details[1],
             'rating': details[2],
             'releaseDate': details[3],
-            'genre': details[4],
+            'genre': details[4]
+        })
+        script_writer.writerow({
+            'title': details[0],
             'script': details[5]
         })
 
 if __name__ == "__main__":
-    response = requests.get(f'{BASE_URL}/all-scripts.html/')
+    response = requests.get(f'{BASE_URL}/all-scripts.html')
     html = response.text
 
     soup = BeautifulSoup(html, "html.parser")
@@ -110,16 +113,22 @@ if __name__ == "__main__":
 
     os.makedirs(SCRIPTS_DIR, exist_ok=True)
 
-    with open('movie_details.csv', 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['title', 'imageUrl', 'rating', 'releaseDate', 'genre', 'script']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+    with open('movie_details_no_script.csv', 'w', newline='', encoding='utf-8') as details_csvfile, \
+         open('movie_scripts.csv', 'w', newline='', encoding='utf-8') as scripts_csvfile:
+        
+        details_fieldnames = ['title', 'imageUrl', 'rating', 'releaseDate', 'genre']
+        script_fieldnames = ['title', 'script']
+        
+        details_writer = csv.DictWriter(details_csvfile, fieldnames=details_fieldnames)
+        script_writer = csv.DictWriter(scripts_csvfile, fieldnames=script_fieldnames)
+        
+        details_writer.writeheader()
+        script_writer.writeheader()
 
         links = [p.a['href'] for p in paragraphs]
         
         with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
-            futures = [executor.submit(fetch_and_write_details, link, writer) for link in links]
+            futures = [executor.submit(fetch_and_write_details, link, details_writer, script_writer) for link in links]
 
             for future in as_completed(futures):
                 future.result()  # Ensure any exceptions are raised
-

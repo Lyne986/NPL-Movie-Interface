@@ -1,7 +1,11 @@
 {
   "build": {
     "env": {
-      "NEXT_PUBLIC_CSV_PATH": "./src/data/movie_details.csv"
+      "NEXT_PUBLIC_CSV_PATH": "./src/data/movie_details.csv",
+      "MOVIES_NO_SCRIPT_CSV": "./src/data/movie_details_no_script.csv",
+      "MOVIES_SCRIPT_1_CSV": "./src/data/movie_scripts_1.csv",
+      "MOVIES_SCRIPT_2_CSV": "./src/data/movie_scripts_2.csv",
+      "MOVIES_SCRIPT_3_CSV": "./src/data/movie_scripts_3.csv"
     }
   }
 }
