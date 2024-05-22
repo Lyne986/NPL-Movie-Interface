@@ -50,7 +50,7 @@ Don't forget to fill the .env file following the .env.example template
 
 ## Technologies Used
 
-- Frontend: React.js, HTML, CSS
+- Frontend: React.js, Next.js, tailwind
 - Scraper: Python, BeautifulSoup, Requests
 
 ## Credits
