@@ -2,7 +2,7 @@ import fs from 'fs';
 import csvParser from 'csv-parser';
 import { NextResponse } from 'next/server';
 
-const csvName = "public/data/films.csv";
+const csvName = "data/movie_details.csv";
 
 let filmsList = [];
 
