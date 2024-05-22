@@ -44,8 +44,8 @@ const Header = ({ userName, page, setSearchQuery }: HeaderProps) => {
       </div>
       <div className="flex items-center gap-4">
         <span className="text-[24px]">Welcome, {userName}</span>
-        <div className="flex items-center w-20 h-20 overflow-hidden rounded-full">
-          <Image className='rounded-full object-contain' src={profilePicture} alt="pp" width={48} height={48} />
+        <div className="flex items-center w-16 h-16 overflow-hidden rounded-full">
+          <Image className='rounded-full object-cover' src={profilePicture} alt="pp" width={64} height={64} />
         </div>
       </div>
     </div>

@@ -14,26 +14,26 @@ interface Card {
 }
 
 interface LibraryClientProps {
-  Cards: Card[];
   userName: string;
 }
 
-const LibraryClient: React.FC<LibraryClientProps> = ({ Cards, userName }) => {
+const LibraryClient: React.FC<LibraryClientProps> = ({ userName }) => {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [libraryData, setLibraryData] = useState(Cards);
+  const [libraryData, setLibraryData] = useState([] as Card[]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await fetch(`http://localhost:3000/api/get-movies${searchQuery ? `?query=${searchQuery}` : ''}`, {
-  //       method: 'GET',
-  //     });
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`http://localhost:3000/api/get-movies${searchQuery ? `?title=${searchQuery}` : ''}`, {
+        method: 'GET',
+      });
 
-  //     const { data } = await res.json();
-  //     setLibraryData(data);
-  //   };
-  //   fetchData();
-  // }, [searchQuery]);
+      const { data } = await res.json();
+      console.log('data', data);
+      setLibraryData(data);
+    };
+    fetchData();
+  }, [searchQuery]);
 
   const handleCardClick = (card: Card) => {
     setSelectedCard(card);
@@ -45,7 +45,7 @@ const LibraryClient: React.FC<LibraryClientProps> = ({ Cards, userName }) => {
       <div className="flex h-full overflow-y-hidden overflow-x-hidden hide-scrollbar transition-all duration-500">
         <div className={`flex flex-col h-full overflow-y-scroll hide-scrollbar transition-all duration-500 ${selectedCard ? 'w-2/3' : 'w-full'}`}>
             <Carroussel 
-              cards={Cards} 
+              cards={libraryData}
               onCardClick={handleCardClick}
               selectedCard={selectedCard} 
             />

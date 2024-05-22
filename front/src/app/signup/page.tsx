@@ -22,7 +22,7 @@ export default async function SignupPage() {
       <div className="hidden md:flex bg-signup w-1/2 flex-col items-center justify-center"/>
       <div className="diagonal-gradient-login flex flex-col w-full lg:w-1/2 p-8">
         <div className="flex flex-col items-center">
-          <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Saver</h1>
+          <h1 className="text-white text-2xl font-bold cursor-pointer">Movies Lister</h1>
         </div>
         <div className="h-full flex flex-col justify-center items-center lg:items-stretch gap-2 w-full md:w-[400px] md:pl-24">
           <span className="text-white text-center lg:text-start text-2xl font-semibold">Bienvenue !</span>

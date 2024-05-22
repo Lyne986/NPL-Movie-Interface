@@ -9,6 +9,8 @@ interface Card {
   title: string;
   imageUrl: string;
   rating?: number;
+  releaseDate?: string;
+  genre?: string;
 }
 
 interface ReviewPanelProps {
@@ -22,7 +24,7 @@ const ReviewPanel: React.FC<ReviewPanelProps> = ({ card, setSelectedCard }) => {
       card ? "translate-x-0 w-1/3" : "translate-x-full w-0"
     }`}>
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-[24px]">My review</h1>
+        <h1 className="text-[24px]">Movie infos</h1>
         <div onClick={() => setSelectedCard(null)}>
           <FaArrowRightFromBracket className="text-2xl hover:text-primarypink cursor-pointer"/>
         </div>
@@ -36,10 +38,9 @@ const ReviewPanel: React.FC<ReviewPanelProps> = ({ card, setSelectedCard }) => {
             </div>
           </div>
           {card.rating && <Rating rating={card.rating} />}
-          <div className="flex flex-col items-center gap-2">
-            <h2 className="text-lg text-textgray font-bold">Description</h2>
-            <p className="text-sm text-textlightgray">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget est nec justo ultricies aliquet. Donec eget est nec justo ultricies aliquet.</p>
-            <button className="button-gradient self-center text-white w-2/3 rounded-full py-2 mt-6">Edit my review</button>
+          <div className="flex flex-col items-start gap-2">
+            <h2 className="text-lg text-black">Release date: {card.releaseDate}</h2>
+            <p className="text-sm text-black">Genre: {card.genre}</p>
           </div>
         </div>
       )}

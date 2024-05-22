@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Movies Saver",
+  title: "Movies Lister",
   description: "Dashboard to track your favorites movies",
 };
 
