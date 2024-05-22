@@ -25,8 +25,8 @@ const Header = ({ userName, page, setSearchQuery }: HeaderProps) => {
   };
 
   return (
-    <div className="w-full h-8 text-xs flex items-center justify-between py-12">
-      <div className="flex w-2/3 rounded-full shadow-[0_0px_15px_-3px_rgba(0,0,0,0.3)]">
+    <div className="w-full h-64 md:h-8 text-xs flex flex-col-reverse md:flex-row items-center justify-between py-12">
+      <div className="flex w-[100%] mt-8 md:mt-0 md:w-2/3 rounded-full shadow-[0_0px_15px_-3px_rgba(0,0,0,0.3)]">
         <button
           className="p-2 bg-white rounded-l-full"
           onClick={executeSearch}
@@ -42,7 +42,7 @@ const Header = ({ userName, page, setSearchQuery }: HeaderProps) => {
           onKeyPress={handleKeyPress}
         />
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-4">
         <span className="text-[24px]">Welcome, {userName}</span>
         <div className="flex items-center w-16 h-16 overflow-hidden rounded-full">
           <Image className='rounded-full object-cover' src={profilePicture} alt="pp" width={64} height={64} />
