@@ -1,4 +1,4 @@
-# Movie Database Project
+# Movie List Project
 
 This project consists of two parts: a Python script to retrieve movie details from http://www.imsdb.com and save them in a CSV file, and a frontend application to list and search for movies by their title and display those movies informations
 
@@ -21,7 +21,7 @@ The frontend application located in the `front` directory provides a user interf
 
 ### Features
 
-- Display a list of movies with pagination.
+- Display a list of movies.
 - Search movies by title.
 - View detailed information for each movie.
 
@@ -39,6 +39,7 @@ The frontend application located in the `front` directory provides a user interf
 
 1. Navigate to the `front` directory.
 2. Install dependencies `npm install`.
+4. Place Scraped CSV at `front/src/data/movie_details.csv`
 3. Start the frontend server `npm run dev`.
 
 
