@@ -1,22 +1,23 @@
 import csv
+import sys
 
 def remove_word_script_from_titles(input_file, output_file):
-    with open(input_file, 'r', newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
+    # Increase the CSV field size limit
+    csv.field_size_limit(sys.maxsize)
+
+    with open(input_file, 'r', newline='', encoding='utf-8') as csvfile_in, \
+         open(output_file, 'w', newline='', encoding='utf-8') as csvfile_out:
+
+        reader = csv.DictReader(csvfile_in)
         fieldnames = reader.fieldnames
+        writer = csv.DictWriter(csvfile_out, fieldnames=fieldnames)
 
-        rows = []
-        for row in reader:
-            # Remove the word "Script" from the title
-            row['title'] = row['title'].replace(' Script', '')
-            rows.append(row)
-
-    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(rows)
+        for row in reader:
+            row['title'] = row['title'].replace(' Script', '')
+            writer.writerow(row)
 
 if __name__ == "__main__":
-    input_csv = 'data/movie_details.csv'
-    output_csv = 'movie_details_cleaned.csv'
+    input_csv = 'movie_details.csv'
+    output_csv = 'cleaned_movie_details.csv'
     remove_word_script_from_titles(input_csv, output_csv)
