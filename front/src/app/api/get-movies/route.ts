@@ -3,7 +3,7 @@ import path from 'path';
 import csvParser from 'csv-parser';
 import { NextResponse } from 'next/server';
 
-const movies_no_script_csv = path.join(process.cwd(), 'src/data/movie_details_no_script.csv');
+const movies_no_script_csv = path.join(process.cwd(), 'src/data/movie_details_no_scripted.csv');
 const movies_script_1_csv = path.join(process.cwd(), 'src/data/movie_scripts_1.csv');
 const movies_script_2_csv = path.join(process.cwd(), 'src/data/movie_scripts_2.csv');
 const movies_script_3_csv = path.join(process.cwd(), 'src/data/movie_scripts_3.csv');
